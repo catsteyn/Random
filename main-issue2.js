@@ -59,29 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+});
 
-    // Form submission event listener with input validation
-    document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Get form inputs
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        
-        // Validate name input
-        if (!nameInput.value.trim()) {
-            alert('Please enter your name.');
-            return;
-        }
-
-        // Validate email input
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // If inputs are valid, display the popup
-        document.getElementById('popup').style.display = 'flex';
-    });
+document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    document.getElementById('popup').style.display = 'flex';
 });
