@@ -63,5 +63,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    const emailInput = document.getElementById('email');
+    const emailValue = emailInput.value.trim();
+
+    // Check if email is empty
+    if (!emailValue) {
+        alert('Please enter your email address.');
+        return;
+    }
+
+    // Check if email is valid
+    if (!isValidEmail(emailValue)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    // Display the popup if email is valid
     document.getElementById('popup').style.display = 'flex';
 });
+
+// Function to validate email address
+function isValidEmail(email) {
+    // Regular expression for validating email address
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
